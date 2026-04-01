@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>About - UOL Inventory</title>
+
+<!-- Favicon -->
+<link rel="icon" href="../../../assets/logo.png">
+
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<script>
+tailwind.config = {
+    darkMode: 'class'
+}
+</script>
+
+<style>
+    body {
+        background-color: #5d50c6;
+    }
+
+    .dark body {
+        background-color: #1e1e2f;
+    }
+</style>
+
+</head>
+
+<body class="bg-purple-600 dark:bg-gray-900 p-8 text-white transition duration-300">
+
+<!-- NAVBAR -->
+<nav class="flex justify-between items-center bg-white dark:bg-gray-800 p-4 rounded-lg mb-8 shadow-lg text-black dark:text-white">
+
+    <h1 class="text-lg font-bold text-purple-700 dark:text-white">
+        UOL Inventory
+    </h1>
+
+    <div class="space-x-4 text-sm font-semibold">
+        <a href="../../../index.html" class="hover:text-purple-600">Home</a>
+        <a href="./About.html" class="hover:text-purple-600">About</a>
+        <a href="../Contact/Contact.html" class="hover:text-purple-600">Contact</a>
+        <a href="../Athuntication/SignIn.html" class="hover:text-purple-600">Sign In</a>
+        <a href="../Athuntication/SignUp.html" class="hover:text-purple-600">Sign Up</a>
+    </div>
+
+    <!-- TOGGLE BUTTON -->
+    <button onclick="toggleTheme()" 
+        class="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition">
+        Toggle Theme
+    </button>
+
+</nav>
+
+<!-- CONTENT -->
+<div class="max-w-4xl mx-auto">
+
+    <h1 class="text-3xl font-bold mb-6 text-center">
+        About Us
+    </h1>
+
+    <div class="bg-white text-black dark:bg-gray-800 dark:text-white p-6 rounded-xl shadow-lg leading-relaxed space-y-4">
+
+        <p>
+            This project is a <b>Tech Inventory Management System</b> developed for UOL.
+        </p>
+
+        <p>
+            It demonstrates real-world JavaScript concepts including:
+        </p>
+
+        <ul class="list-disc ml-6 space-y-1">
+            <li>CRUD Operations using Array of Objects</li>
+            <li>Search, Filter & Sorting Logic</li>
+            <li>Advanced Array Methods (map, filter, reduce)</li>
+            <li>DOM Manipulation</li>
+            <li>Dark/Light Mode using localStorage</li>
+        </ul>
+
+        <p>
+            The system is designed with a modular structure using ES6 and Tailwind CSS for modern UI design.
+        </p>
+
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="mt-10 text-center text-sm">
+    © 2026 UOL Inventory System | All Rights Reserved
+</footer>
+
+<!-- THEME SCRIPT -->
+<script type="module">
+import { toggleTheme, loadTheme } from "../../../src/constants/themeConstants.js";
+
+// Make button work
+window.toggleTheme = toggleTheme;
+
+// Load saved theme
+loadTheme();
+</script>
+
+</body>
+</html>

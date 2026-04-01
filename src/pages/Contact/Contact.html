@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Contact - UOL Inventory</title>
+
+<link rel="icon" href="assets/logo.png">
+<script src="https://cdn.tailwindcss.com"></script>
+
+<script>
+tailwind.config = { darkMode: 'class' }
+</script>
+</head>
+
+<body class="bg-purple-600 dark:bg-gray-900 p-8 text-white">
+
+<nav class="flex justify-between bg-white dark:bg-gray-800 p-4 rounded mb-8 text-black dark:text-white">
+    <h1 class="font-bold">UOL Inventory</h1>
+    <div class="space-x-4">
+        <a href="../../../index.html">Home</a>
+        <a href="../About/About.html">About</a>
+        <a href="./Contact.html">Contact</a>
+        <a href="../Athuntication/SignIn.html">Sign In</a>
+        <a href="../Athuntication/SignUp.html">Sign Up</a>
+    </div>
+    <button onclick="toggleTheme()" 
+            class="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700">
+            Toggle Theme
+        </button>
+</nav>
+
+<h1 class="text-3xl font-bold mb-6">Contact Us</h1>
+
+<div class="bg-white text-black dark:bg-gray-800 dark:text-white p-6 rounded shadow">
+    <input type="text" placeholder="Your Name" class="w-full p-2 mb-3 border rounded">
+    <input type="email" placeholder="Your Email" class="w-full p-2 mb-3 border rounded">
+    <textarea placeholder="Message" class="w-full p-2 mb-3 border rounded"></textarea>
+    <button class="bg-purple-600 text-white px-4 py-2 rounded">Send</button>
+</div>
+
+<footer class="mt-10 text-center">© 2026 UOL</footer>
+
+<script type="module">
+import { toggleTheme, loadTheme } from "../../../src/constants/themeConstants.js";
+
+window.toggleTheme = toggleTheme;
+
+// Apply saved theme on page load
+loadTheme();
+</script>
+
+
+</body>
+</html>

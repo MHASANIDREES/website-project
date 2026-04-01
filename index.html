@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UOL Tech Inventory</title>
+    <link rel="icon" href="assets/logo.png">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { darkMode: 'class' }
+    </script>
+
+    <style>
+        body { background-color: #5d50c6; }
+        .card { background: white; border-radius: 15px; padding: 20px; transition: 0.3s; box-shadow: 0 10px 15px rgba(0,0,0,0.2); }
+        .card:hover { transform: translateY(-5px); }
+        .input-line { border-bottom: 2px solid #5d50c6; outline: none; padding: 6px; width: 100%; }
+        .dark body { background-color: #1e1e2f; }
+        .dark .card { background: #2a2a40; color: white; }
+    </style>
+</head>
+
+<body class="p-8">
+
+    <!-- NAVBAR -->
+    <nav class="flex justify-between items-center bg-white dark:bg-gray-800 p-4 rounded-lg mb-8 shadow-lg">
+        <h1 class="text-xl font-bold text-purple-700 dark:text-white">UOL Inventory</h1>
+        <div class="space-x-4 text-sm font-semibold">
+            <a href="index.html" class="hover:text-purple-600">Home</a>
+            <a href="./src/pages/About/About.html" class="hover:text-purple-600">About</a>
+            <a href="./src/pages/Contact/Contact.html" class="hover:text-purple-600">Contact</a>
+            <a href="./src/pages/Athuntication/SignIn.html" class="hover:text-purple-600">Sign In</a>
+            <a href="./src/pages/Athuntication/SignUp.html" class="hover:text-purple-600">Sign Up</a>
+        </div>
+        <button onclick="toggleTheme()" class="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700">Toggle Theme</button>
+    </nav>
+
+    <!-- MAIN CONTAINER -->
+    <div class="max-w-6xl mx-auto">
+
+        <h1 class="text-white text-4xl font-bold text-center mb-8">Tech Inventory Management</h1>
+
+        <!-- ADD PRODUCT -->
+        <div class="bg-white dark:bg-gray-800 rounded-xl p-6 mb-6 shadow-2xl">
+            <h2 class="text-purple-800 dark:text-white font-bold mb-4 uppercase text-xs tracking-widest">Add New Product</h2>
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+                <input id="pName" type="text" placeholder="Product Name" class="input-line">
+                <input id="pCategory" type="text" placeholder="Category" class="input-line">
+                <input id="pPrice" type="number" placeholder="Price" class="input-line">
+                <input id="pBrand" type="text" placeholder="Brand" class="input-line">
+                <button onclick="addProduct()" class="bg-orange-500 text-white font-bold py-2 rounded-lg hover:bg-orange-600">Add</button>
+            </div>
+        </div>
+
+        <!-- FILTERS -->
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-3 mb-10">
+            <input id="sName" onkeyup="applyFilters()" placeholder="Search Name" class="p-3 rounded shadow">
+            <input id="sCat" onkeyup="applyFilters()" placeholder="Category" class="p-3 rounded shadow">
+            <input id="sBrand" onkeyup="applyFilters()" placeholder="Brand" class="p-3 rounded shadow">
+            <input id="sPrice" onkeyup="applyFilters()" placeholder="Max Price" class="p-3 rounded shadow">
+            <input id="sID" onkeyup="applyFilters()" placeholder="ID" class="p-3 rounded shadow">
+        </div>
+
+        <!-- CARDS -->
+        <div id="cardGrid" class="grid grid-cols-1 md:grid-cols-3 gap-8"></div>
+
+        <!-- ANALYTICS -->
+        <div class="mt-16 bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl">
+            <h2 class="text-2xl font-bold mb-6 text-purple-700 dark:text-white">Inventory Analysis</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div>
+                    <h3 class="font-bold mb-2">Price Tiers</h3>
+                    <div id="ifElseOutput" class="bg-gray-100 dark:bg-gray-700 p-4 rounded"></div>
+                </div>
+                <div>
+                    <h3 class="font-bold mb-2">System Logs</h3>
+                    <ul id="loopOutput" class="list-disc ml-5 bg-gray-100 dark:bg-gray-700 p-4 rounded"></ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="mt-10 text-center text-white text-sm">© 2026 UOL Inventory System | All Rights Reserved</footer>
+
+    <!-- JS MODULE -->
+    <script type="module" src="./src/pages/home/home.js"></script>
+    <script type="module">
+        import { toggleTheme, loadTheme } from "./src/constants/themeConstants.js";
+        window.toggleTheme = toggleTheme;
+        loadTheme();
+    </script>
+</body>
+</html>
